@@ -20,6 +20,9 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 gem 'font-awesome-rails'
 
+# sendgrid for mailer
+gem 'sendgrid-ruby'
+
 group :development do
   gem 'spring'
   gem 'better_errors'
