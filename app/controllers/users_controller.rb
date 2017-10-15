@@ -1,6 +1,3 @@
-# Copyright (c) 2015, @sudharti(Sudharsanan Muralidharan)
-# Socify is an Open source Social network written in Ruby on Rails This file is licensed
-# under GNU GPL v2 or later. See the LICENSE.
 
 class UsersController < ApplicationController
   before_action :authenticate_user!
@@ -53,4 +50,16 @@ class UsersController < ApplicationController
     @user = User.friendly.find_by(slug: params[:id]) || User.find_by(id: params[:id])
     render_404 and return unless @user
   end
+#sendmail    
+  def create
+    # Create the user from params
+    @user = User.new(params[:user])
+    if @user.save
+      # Deliver the signup email
+      UserNotifier.send_signup_email(@user).deliver
+      redirect_to(@user, :notice => 'User created')
+    else
+      render :action => 'new'
+    end
+  end    
 end
