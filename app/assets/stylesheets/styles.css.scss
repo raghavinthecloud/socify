@@ -18,20 +18,44 @@ h6 {
 
 .navbar {
   border: none;
-  background-color: $navbar-color;
+//  background-color: $navbar-color;
+    .navbar-header .navbar-text{
+        font-size: 30px;
+    }
+}
+.navbar-list{
+    position: relative;
+    .dropdown{
+        position: absolute;
+        left: 0;
+        top:100px;
+        .dashboard-menu{ 
+            padding: 0px;
+        
+            li{
+                list-style-type: none;
+                margin: 30px 0;
+                img{width: 30px;}
+            } 
+        }
+    }
 }
 
 .navbar-brand {
   font-weight: 600;
 }
+.navbar.navbar-default{
+    background-color: $bg-color !important;
+}
 
 .navbar-brand,
 .navbar-default .navbar-nav > li > a {
   font-family: 'Montserrat';
-  color: white !important;
+  color: $pink !important;
+    
 
   &:hover {
-    color: $bg-color !important;
+    color: $grey !important;
   };
 }
 
